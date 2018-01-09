@@ -7,12 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document
 import javax.validation.constraints.NotBlank
 
 @CompileStatic
-@Document(collection='greetings')
-class Greeting {
+@Document(collection='bulletins')
+class Bulletin {
 
     @Id
     String id
 
     @NotBlank
-    String message
+    String title
 }

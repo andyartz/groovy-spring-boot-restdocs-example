@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @CompileStatic
 @SpringBootApplication
-class ExampleGreetingsApplication {
+class ExampleBulletinsApplication {
 
     static void main(String[] args) {
-        SpringApplication.run ExampleGreetingsApplication, args
+        SpringApplication.run ExampleBulletinsApplication, args
     }
 
 }

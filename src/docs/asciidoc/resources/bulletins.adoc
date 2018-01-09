@@ -1,0 +1,25 @@
+[[resources-hello]]
+== Bulletins
+
+The bulletins resource returns bulletins for various inputs
+
+[[bulletins-list-example]]
+=== List of Bulletins
+
+ A `GET` request with no parameters will return a list of bulletins
+
+operation::bulletins-list-example[snippets='curl-request,http-request,http-response']
+
+[[bulletins-get-example]]
+=== Get by ID
+
+A `GET` request with a path parameter of the id will return the bulletin with that id.
+
+operation::bulletins-get-by-id-example[snippets='curl-request,http-request,http-response']
+
+[[bulletins-post-example]]
+=== Create a Bulletin
+
+A `POST` request will create a new bulletin.
+
+operation::bulletins-post-example[snippets='request-fields,curl-request,http-request,http-response']

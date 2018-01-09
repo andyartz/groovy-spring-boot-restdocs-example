@@ -8,7 +8,7 @@ apply plugin: 'io.spring.dependency-management'
 
 version = "${version}"
 group = "${group}"
-mainClassName = 'sample.ExampleGreetingsApplication'
+mainClassName = 'sample.ExampleBulletinsApplication'
 
 buildscript {
     repositories {

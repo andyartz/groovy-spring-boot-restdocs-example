@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import sample.model.Greeting
-import sample.repository.GreetingRepository
+import sample.model.Bulletin
+import sample.repository.BulletinRepository
 
 import javax.validation.Valid
 
 @RestController
-@RequestMapping('/greetings')
-class GreetingsController {
+@RequestMapping('/bulletins')
+class BulletinsController {
 
     @Autowired
-    GreetingRepository greetingsRepository
+    BulletinRepository bulletinsRepository
 
     @PostMapping()
-    Mono<Greeting> createGreeting(@Valid @RequestBody Greeting greeting) {
-        return greetingsRepository.save(greeting)
+    Mono<Bulletin> createBulletin(@Valid @RequestBody Bulletin bulletin) {
+        return bulletinsRepository.save(bulletin)
     }
 
     @GetMapping()
-    Flux<Greeting> listAllGreetings() {
-        return greetingsRepository.findAll()
+    Flux<Bulletin> listAllBulletins() {
+        return bulletinsRepository.findAll()
     }
 
     @GetMapping('/{id}')
-    Mono<Greeting> getGreetingById(@PathVariable(value = 'id') String greetingId) {
-        greetingsRepository.findById(greetingId)
+    Mono<Bulletin> getBulletinById(@PathVariable(value = 'id') String bulletinId) {
+        bulletinsRepository.findById(bulletinId)
     }
 }

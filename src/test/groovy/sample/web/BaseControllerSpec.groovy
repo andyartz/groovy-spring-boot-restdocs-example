@@ -27,7 +27,7 @@ class BaseControllerSpec extends Specification {
     void setup() {
         this.webTestClient = WebTestClient.bindToApplicationContext(this.context)
                 .configureClient()
-                .baseUrl('/greetings')
+//                .baseUrl('/bulletins')
                 .filter(documentationConfiguration(restDocumentation)
                 .operationPreprocessors()
                     .withRequestDefaults(prettyPrint())
