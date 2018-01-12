@@ -12,7 +12,7 @@ class ErrorDocumentationSpec extends BaseControllerSpec {
 
     void 'test and document error format'() {
         expect:
-        this.webTestClient.delete().uri('/bulletins')
+        this.webTestClient.delete().uri(BulletinsController.ENDPOINT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .exchange()

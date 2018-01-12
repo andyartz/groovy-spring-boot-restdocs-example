@@ -5,10 +5,10 @@ import groovy.transform.CompileStatic
 import javax.validation.constraints.NotBlank
 
 @CompileStatic
-class Bulletin {
+class CmsFile {
 
     String id
 
     @NotBlank
-    String title
+    String filename
 }

@@ -1,4 +1,4 @@
-[[resources-hello]]
+[[resources-top]]
 == Bulletins
 
 The bulletins resource returns bulletins for various inputs
@@ -6,9 +6,12 @@ The bulletins resource returns bulletins for various inputs
 [[bulletins-list-example]]
 === List of Bulletins
 
- A `GET` request with no parameters will return a list of bulletins
+A `GET` request with search parameters will return a list of bulletins.
+All parameters are optional; absence of all parameters will return all bulletins.
+If keywords are provided, then search results are sorted by score (relevance), then date.
+If no keywords are provided, then search results are sorted by date.
 
-operation::bulletins-list-example[snippets='curl-request,http-request,http-response']
+operation::bulletins-list-example[snippets='request-parameters,curl-request,http-request,http-response']
 
 [[bulletins-get-example]]
 === Get by ID

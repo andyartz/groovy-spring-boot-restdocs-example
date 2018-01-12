@@ -82,7 +82,45 @@ For example, a request that attempts to delete on a disallowed endpoint will pro
 
 operation::error-example[snippets='curl-request,http-request,http-response']
 
+[[security]]
+== Security
+
+This API utilizes SuiteSecurity. The token should be provided as an Authorization field in the request headers, like so:
+
+operation::bulletins-post-example[snippets='curl-request,http-request']
+
+[[change-management]]
+== Change Management
+
+=== Versioning
+
+Major versions will be released at different subdomains, such as version 1 at
+
+`http://dev-kraken-1.apps-dev.gp1-cf.solera.com/`
+
+and version 2 at
+
+`http://dev-kraken-2.apps-dev.gp1-cf.solera.com/`.
+
+Consumers will *not* be redirected from one version of a service to another.
+To do so would invite bad practice and brittle client code. Instead, consumers should monitor
+deprecation warnings and migrate accordingly. Most consumers should be able to migrate by
+updating to the latest version of the client library and making any further changes from there.
+
+=== Deprecation
+
+Deprecation warnings will appear in response headers to warn of upcoming changes to endpoints based on the actual
+usage of that endpoint.
+This may be due to upcoming endpoint relocation or removal, or a change to a particular parameter.
+For example, a request to an endpoint that is slated for removal will return a warning to all consumers,
+but a request to an endpoint that does not specify a value for a 'sort-order' parameter that is slated for removal
+will not generate a warning.
+
+operation::bulletins-post-example[snippets='http-response']
+
 [[resources]]
 = Resources
 
 include::resources/bulletins.adoc[]
+include::resources/files.adoc[]
+

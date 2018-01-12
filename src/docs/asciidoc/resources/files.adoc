@@ -1,0 +1,11 @@
+[[files-top]]
+== Files
+
+The files resource returns files for various inputs
+
+[[files-get-example]]
+=== Get by ID
+
+A `GET` request with a path parameter of the id will return the file with that id.
+
+operation::files-get-by-id-example[snippets='curl-request,http-request,http-response']

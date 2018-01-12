@@ -248,7 +248,7 @@ ruleset {
     ImportFromSamePackage
     ImportFromSunPackages
     MisorderedStaticImports
-    NoWildcardImports
+//    NoWildcardImports
     UnnecessaryGroovyImport
     UnusedImport
 
