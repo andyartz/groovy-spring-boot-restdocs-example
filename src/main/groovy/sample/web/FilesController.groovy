@@ -13,15 +13,21 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping(FilesController.ENDPOINT)
 class FilesController {
 
-    public static final String ENDPOINT = '/files'
+    public static final String ENDPOINT = '/kraken/files'
 
     @GetMapping('/{id}')
     ResponseEntity<byte[]> getCmsFileById(@PathVariable(value = 'id') String cmsFileId) {
-        cmsFileId // this does nothing but keep codenarc from barking until implementation
-        byte[] content = getClass().getResource('image.gif').bytes
-        HttpStatus status = HttpStatus.OK
+        byte[] content
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>()
-        headers.set('Content-Type', 'image/gif')
+
+        if (cmsFileId == '42') {
+            content = getClass().getResource('image.jpg').bytes
+            headers.set('Content-Type', 'image/jpeg')
+        } else {
+            content = getClass().getResource('page.html').bytes
+            headers.set('Content-Type', 'text/html')
+        }
+        HttpStatus status = HttpStatus.OK
         new ResponseEntity<byte[]>(content, headers, status)
     }
 }

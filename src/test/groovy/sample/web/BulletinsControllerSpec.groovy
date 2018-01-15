@@ -86,9 +86,15 @@ class BulletinsControllerSpec extends BaseControllerSpec {
     }
 
     FieldDescriptor[] bulletinsResponseFields = new FieldDescriptor().with {
-        [fieldWithPath('[].id').type(JsonFieldType.STRING).optional()
+        [fieldWithPath('took').type(JsonFieldType.NUMBER)
+                 .description('The duration of the search'),
+         fieldWithPath('total').type(JsonFieldType.NUMBER)
+                 .description('The total number of hits'),
+         fieldWithPath('max_score').type(JsonFieldType.NUMBER)
+                 .description('The maximum score across all hits'),
+         fieldWithPath('hits[].id').type(JsonFieldType.STRING)
                  .description("The bulletin's id"),
-         fieldWithPath('[].title').type(JsonFieldType.STRING)
+         fieldWithPath('hits[].title').type(JsonFieldType.STRING)
                  .description("The bulletin's title")]
     }
 }

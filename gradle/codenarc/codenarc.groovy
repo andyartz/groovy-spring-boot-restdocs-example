@@ -137,7 +137,7 @@ ruleset {
     DuplicateListLiteral
     DuplicateMapLiteral
     DuplicateNumberLiteral
-    DuplicateStringLiteral
+//    DuplicateStringLiteral
 
     // rulesets/enhanced.xml
     /*

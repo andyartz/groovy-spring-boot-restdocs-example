@@ -4,8 +4,14 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 import sample.model.Bulletin
+import sample.model.SearchResult
 
 import javax.validation.Valid
 
@@ -13,7 +19,7 @@ import javax.validation.Valid
 @RequestMapping(BulletinsController.ENDPOINT)
 class BulletinsController {
 
-    public static final String ENDPOINT = '/bulletins'
+    public static final String ENDPOINT = '/kraken/bulletins'
 
     @PostMapping()
     ResponseEntity<Bulletin> createBulletin(@Valid @RequestBody Bulletin bulletin) {
@@ -26,11 +32,12 @@ class BulletinsController {
     }
 
     @GetMapping()
-    List<Bulletin> listAllBulletins() {
+    SearchResult listAllBulletins() {
         Bulletin[] bulletins = []
         bulletins += new Bulletin(id: '6724915b-df7e-49dc-b9b6-a1b36a1a8a73', title: 'Bad Flux Capacitor')
         bulletins += new Bulletin(id: '9d3f3fe4-bdc2-4181-9d3e-c2259bb5f541', title: 'JohnnyCab AI Navigation Failure')
-        bulletins
+//        bulletins
+        return new SearchResult(took: 3, total: 2, maxScore: 0.8675309, hits: bulletins)
 //        return bulletinsRepository.findAll()
     }
 

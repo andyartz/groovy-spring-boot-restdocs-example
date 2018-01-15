@@ -11,5 +11,4 @@ class ExampleBulletinsApplication {
     static void main(String[] args) {
         SpringApplication.run ExampleBulletinsApplication, args
     }
-
 }
